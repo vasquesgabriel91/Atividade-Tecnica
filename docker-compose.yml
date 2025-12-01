@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: api-weather
+    ports:
+      - "8000:8000"
+    environment:
+      - OPEN_METEO_BASE_URL=https://api.open-meteo.com/v1
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: ui-weather
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
