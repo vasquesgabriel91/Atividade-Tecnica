@@ -5,10 +5,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Next.js
-.next/
-out/
-dist/
+# # Next.js
+# .next/
+# out/
+# dist/
 
 # Tailwind
 .tailwind/
