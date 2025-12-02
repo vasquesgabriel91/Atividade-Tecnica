@@ -6,11 +6,20 @@ export interface DailyForecast {
   icon: 'rain' | 'cloudy' | 'partly-cloudy' | 'snow' | 'sun'; // Ícone para o dia
 }
 
+export interface AgronomicAnalysis {
+  harvest_risk: string;
+  pest_conditions: string;
+  thermal_stress: string;
+  wind_risk: string;
+}
+
 export interface Weather {
   city: string;
-  temperature: number; // Temperatura atual
+  temperature: number;
   wind_speed: number;
   humidity: number;
   rain: number;
-  forecast: DailyForecast[]; // Adicionamos a previsão de 5 dias
+  forecast: DailyForecast[];
+
+  agronomic_analysis: AgronomicAnalysis; // <-- adicionar
 }

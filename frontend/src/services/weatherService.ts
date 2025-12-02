@@ -7,5 +7,16 @@ export async function fetchWeather(city: string) {
     throw new Error("Erro ao buscar clima");
   }
 
-  return await response.json();
+  const result = await response.json();
+
+  return {
+    city: result.city,
+    temperature: result.weather.temperature,
+    wind_speed: result.weather.wind_speed,
+    humidity: result.weather.humidity,
+    rain: result.weather.rain,
+
+  agronomic_analysis: result.agronomic_analysis
+  };
+
 }
